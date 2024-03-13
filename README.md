@@ -50,7 +50,7 @@ user_1 = User()
 
 ```angular2html
 
-class User():
+class User:
 
     def __init__(self):
         self.id = id
@@ -62,7 +62,7 @@ class User():
 
 ```
 ```angular2html
-class User():
+class User:
 
     def __init__(self, id, name):
         self.id = id
