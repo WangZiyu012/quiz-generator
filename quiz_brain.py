@@ -30,3 +30,4 @@ for question_index in range(0, len(question_bank)):
         user_right_count+=1
         print("You are right!")
     print(f"Your score now is {user_right_count}/{question_index}")
+
