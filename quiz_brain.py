@@ -6,25 +6,42 @@ from question_model import Question
 from data import question_data
 from data import question_bank
 class QuizBrain:
-    def __init__(self, question_index, question_bank = question_bank):
-    def ask(self):
+    def __init__(self, question_list, question_index, user_wrong_count):
+        self.question_list = question_list
+        self.question_index = question_index
+        self.question_now = question_list[question_index]
+        self.user_wrong_count = user_wrong_count
+        self.user_right_count = question_index - user_wrong_count - 1
+    def question(self):
+        print(self.question_now["text"])
+        self.user_answer = input("True or False?")
+
+    def still_has_questions(self):
+        while self.question_index < len(question_bank):
+            return True
+        else:
+            return False
 
     def check_correct(self):
+        if self.question_now["answer"] != self.user_answer:
+            += 1
+            print("You are wrong!")
+        else:
+            self.user_right_count += 1
+            print("You are right!")
+        print(f"Your score now is {self.user_right_count}/{self.question_index}")
 
     def check_end(self):
-
+        len(question_bank)
 
     pass
 
 
-for question_index in range(0, len(question_bank)):
-    question_now = question_bank[question_index]
-    user_wrong_count = 0
-    user_right_count = question_index - user_wrong_count -1
+
     print(question_now["text"])
     user_answer = input("True or False?")
     if question_now["answer"] != user_answer:
-        user_wrong_count+=1
+        +=1
         print("You are wrong!")
     else:
         user_right_count+=1
