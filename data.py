@@ -1,6 +1,5 @@
 from question_model import Question
 
-
 question_data = [
     {"text": "A slug's blood is green.", "answer": "True"},
     {"text": "The loudest animal is the African Elephant.", "answer": "False"},
@@ -15,12 +14,3 @@ question_data = [
     {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
     {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
 ]
-
-
-question_bank = []
-for index in range(0, len(question_data)):
-    data_now = question_data[index]
-    data_now_text = data_now["text"]
-    data_now_answer = data_now["answer"]
-    question_now = Question(text=data_now_text, answer=data_now_answer)
-    question_bank.append(question_now)

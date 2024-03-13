@@ -4,47 +4,29 @@
 
 from question_model import Question
 from data import question_data
-from data import question_bank
 class QuizBrain:
-    def __init__(self, question_list, question_index, user_wrong_count):
+    def __init__(self, question_list ):
         self.question_list = question_list
-        self.question_index = question_index
-        self.question_now = question_list[question_index]
-        self.user_wrong_count = user_wrong_count
-        self.user_right_count = question_index - user_wrong_count - 1
+        self.question_index = 0
+        self.score = 0
+        self.question_now = question_list[self.question_index]
+
     def question(self):
+        self.question_index += 1
         print(self.question_now["text"])
-        self.user_answer = input("True or False?")
+        user_answer = input("True or False?")
+        correct_answer = self.question_now["answer"]
+        self.check_answer(user_answer, correct_answer)
 
     def still_has_questions(self):
-        while self.question_index < len(question_bank):
-            return True
-        else:
-            return False
+        return self.question_index < len(self.question_list)
 
-    def check_correct(self):
-        if self.question_now["answer"] != self.user_answer:
-            += 1
+    def check_answer(self, user_answer, correct_answer):
+        if self.question_now["answer"] != user_answer:
+            self.score+= 1
             print("You are wrong!")
         else:
-            self.user_right_count += 1
+            self.score += 1
             print("You are right!")
-        print(f"Your score now is {self.user_right_count}/{self.question_index}")
-
-    def check_end(self):
-        len(question_bank)
-
-    pass
-
-
-
-    print(question_now["text"])
-    user_answer = input("True or False?")
-    if question_now["answer"] != user_answer:
-        +=1
-        print("You are wrong!")
-    else:
-        user_right_count+=1
-        print("You are right!")
-    print(f"Your score now is {user_right_count}/{question_index}")
+        print(f"Your score now is {self.score}/{self.}")
 
